@@ -15,6 +15,7 @@ module.exports = {
       .set('api', resolve('src/api'))
       .set('utils', resolve('src/utils'))
       .set('views', resolve('src/views'))
+      .set('assets', resolve('src/assets'))
       .set('components', resolve('src/components'))
   },
   pluginOptions: {
@@ -33,6 +34,9 @@ module.exports = {
             options: {
               prefix: false
             }
+          },
+          {
+            
           }
         ]
       }

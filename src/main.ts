@@ -6,8 +6,10 @@ import store from '@/store/index';
 // use project UI  "iview"
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
-import './style/theme/index.less';  // set project theme
+import './style/index.less';  // set project theme
 Vue.use(iView);
+
+import './lib/rem';
 
 Vue.config.productionTip = false;
 
