@@ -7,7 +7,5 @@
 
 <script>
 import Vue from 'vue';
-export default class Login extends Vue{
-  
-}
+export default class Login extends Vue {}
 </script>
