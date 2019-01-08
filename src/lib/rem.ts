@@ -1,13 +1,13 @@
 
 function fnResize() {
   var deviceWidth = document.documentElement.clientWidth || window.innerWidth
-  if (deviceWidth >= 1920) {
-    deviceWidth = 1920
+  if (deviceWidth >= 750) {
+    deviceWidth = 750
   }
-  if (deviceWidth <= 600) {
-    deviceWidth = 600
+  if (deviceWidth <= 375) {
+    deviceWidth = 375
   }
-  document.documentElement.style.fontSize = (deviceWidth / 19.2) + 'px'
+  document.documentElement.style.fontSize = (deviceWidth / 7.5) + 'px'
 }
 fnResize()
 window.onresize = function () {
