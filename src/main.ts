@@ -4,11 +4,11 @@ import router from '@/router/index';
 import store from '@/store/index';
 
 // use project UI  "iview"
-import iView from 'iview';
-import 'iview/dist/styles/iview.css';
-import './style/index.less';  // set project theme
-Vue.use(iView);
+import './style/index.scss';  // set project theme
 
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
 import './lib/rem';
 
 Vue.config.productionTip = false;
