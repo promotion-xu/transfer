@@ -61,14 +61,14 @@ export default class Login extends Vue {
 .login {
   width: 100%;
   height: 100%;
-  background: url("../../assets/background.png") no-repeat center;
+  background: url('../../assets/background.png') no-repeat center;
   overflow: hidden;
   .container {
     width: 6rem;
     height: 4rem;
     border: 1px solid #000;
     margin: 3rem auto;
-    padding: .1rem .2rem;
+    padding: 0.1rem 0.2rem;
     background-color: #fff;
     border-radius: 10px;
     .main {
