@@ -1,4 +1,4 @@
-FROM registry.docker-cn.com/library/node:latest
+FROM node:11.6.0-alpine
 
 WORKDIR /home/Service
 # Bundle app source
