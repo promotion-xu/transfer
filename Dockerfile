@@ -1,4 +1,4 @@
-FROM node:10.15.0-alpine
+FROM node:10.15.0
 
 WORKDIR /home/Service
 # Bundle app source
