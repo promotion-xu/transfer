@@ -9,12 +9,14 @@
     "prebuild": "rebuild-node-sass"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "bcryptjs": "^2.4.3",
     "element-ui": "^2.4.11",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "vue": "^2.5.21",
     "vue-class-component": "^6.3.2",
-    "vue-property-decorator": "^7.2.0",
+    "vue-property-decorator": "^7.3.0",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },

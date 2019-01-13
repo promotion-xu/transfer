@@ -4,9 +4,18 @@ function resolve(dir) {
 }
 
 module.exports = {
-  lintOnSave: true,
+  lintOnSave: false,
   devServer: {
-
+    proxy: {
+      '/api': {
+        target: 'http://172.20.25.110:8087',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '',
+        }
+      }
+    }
   },
 
   chainWebpack: config => {

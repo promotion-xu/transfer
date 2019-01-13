@@ -1,16 +1,20 @@
 <template>
   <div class="login">
+    <div class="title">
+      <h5>Personal Web</h5>
+    </div>
+
     <div class="container">
       <div class="main">
-        <el-input placeholder="请输入用户名" v-model="username">
+        <el-input :error='usernameError' :error-message='usernameErrorMsg' placeholder="请输入用户名" v-model="username">
           <i slot="prefix" class="el-input__icon el-icon-menu"></i>
         </el-input>
-        <el-input placeholder="请输入密码" v-model="password">
+        <el-input :error='passwordError' :error-message='passwordErrorMsg' placeholder="请输入密码" v-model="password">
           <i slot="prefix" class="el-input__icon el-icon-view"></i>
         </el-input>
       </div>
       <div class="footer">
-        <el-button type="primary" :loading="loading">登录</el-button>
+        <el-button type="primary" :loading="loading" @click.native="login">登录</el-button>
       </div>
     </div>
   </div>
@@ -19,7 +23,11 @@
 
 <script lang='ts'>
 import Vue from 'vue';
+import { Component } from 'vue-property-decorator'
+
+@Component
 export default class Login extends Vue {
+
   // username data
   username: string = '';
   usernameError: boolean = false;
@@ -31,10 +39,20 @@ export default class Login extends Vue {
   passwordErrorMsg: string = '';
 
   loading: boolean = false;
+
   login() {
     this.loading = true;
-    console.log(11);
+
+    this.validateUsername();
+    this.validatePassword();
+
+    if(this.usernameError || this.passwordError) {
+      this.loading = false;
+      return;
+    }
+
     console.log(this.username, this.password);
+
   }
   // 简单的校验用户名
   validateUsername() {
@@ -63,11 +81,14 @@ export default class Login extends Vue {
   height: 100%;
   background: url('../../assets/background.png') no-repeat center;
   overflow: hidden;
+  .title {
+    text-align: center;
+  }
   .container {
     width: 6rem;
     height: 4rem;
     border: 1px solid #000;
-    margin: 3rem auto;
+    margin: 2rem auto;
     padding: 0.1rem 0.2rem;
     background-color: #fff;
     border-radius: 10px;
@@ -78,6 +99,9 @@ export default class Login extends Vue {
       text-align: center;
       height: 20%;
       margin-top: 10px;
+      button {
+        width: 2rem;
+      }
     }
   }
 }

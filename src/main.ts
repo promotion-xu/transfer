@@ -11,6 +11,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 import './lib/rem';
 
+import axios from '@/api/axios/index'; 
+
 Vue.config.productionTip = false;
 
 new Vue({
