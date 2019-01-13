@@ -3,14 +3,14 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-  state: {
+import Login from './modules/login';
+const modules = {
+  Login,
+};
 
-  },
-  mutations: {
 
-  },
-  actions: {
+const store = new Vuex.Store({
+  modules,
+})
 
-  },
-});
+export default store;

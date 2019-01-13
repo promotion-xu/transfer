@@ -2,6 +2,7 @@
   <div class="login">
     <div class="title">
       <h5 class=" animated infinite flash delay-1s">Personal Web</h5>
+      <h4 class=" animated infinite flash delay-1s">{{count}}</h4>
     </div>
 
     <div class="container">
@@ -39,10 +40,21 @@ import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import { loginByUsername } from './service/index';
 import fetch from '@/api/axios';
+import mapState from 'vuex';
+import loginStore from '@/store/modules/login';
 const LoginService = {
   loginByUsername,
 };
-@Component
+@Component({
+  computed: {
+  },
+  methods: {
+
+  },
+  watch: {
+
+  }
+})
 export default class Login extends Vue {
   // username data
   username: string = '';
@@ -55,30 +67,37 @@ export default class Login extends Vue {
   passwordErrorMsg: string = '';
 
   loading: boolean = false;
+  get count() {
+    return this.$store.state.Login.state.count;
+  }
 
   login() {
-    this.loading = true;
+    console.log(this.$store);
+    // console.log(this.$store.state.count);
+    // this.$store.commit('increment');
+    // console.log(this.$store.state.count)
+    // this.loading = true;
 
-    this.validateUsername();
-    this.validatePassword();
+    // this.validateUsername();
+    // this.validatePassword();
 
-    if (this.usernameError || this.passwordError) {
-      this.loading = false;
-      return;
-    }
+    // if (this.usernameError || this.passwordError) {
+    //   this.loading = false;
+    //   return;
+    // }
 
-    LoginService.loginByUsername(this.username, this.password)
-    .then(success => {
-      if (success) {
-        this.$router.push('/home');
-      }
-    })
-    .catch(err => {
-      this.handleLoginError(err);
-    })
-    .finally( () => {
-      this.loading = false;
-    })
+    // LoginService.loginByUsername(this.username, this.password)
+    // .then(success => {
+    //   if (success) {
+    //     this.$router.push('/home');
+    //   }
+    // })
+    // .catch(err => {
+    //   this.handleLoginError(err);
+    // })
+    // .finally( () => {
+    //   this.loading = false;
+    // })
   }
 
   handleLoginError(errMsg: string) {
