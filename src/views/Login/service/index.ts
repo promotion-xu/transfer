@@ -7,7 +7,6 @@ import fetch from '@/api/axios';
 
 export const loginByUsername = (username: string, password: string) => {
   const p = new Promise((resolve, reject) => {
-    console.log(password)
     fetch.post('/v1/login', {
       username,
       password,

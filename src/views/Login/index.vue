@@ -1,20 +1,32 @@
 <template>
   <div class="login">
     <div class="title">
-      <h5>Personal Web</h5>
+      <h5 class=" animated infinite flash delay-1s">Personal Web</h5>
     </div>
 
     <div class="container">
       <div class="main">
-        <el-input :error='usernameError' :error-message='usernameErrorMsg' placeholder="请输入用户名" v-model="username" type='text'>
-          <i slot="prefix" class="el-input__icon el-icon-menu"></i>
+        <el-input
+          :error="usernameError"
+          :error-message="usernameErrorMsg"
+          placeholder="请输入用户名"
+          v-model="username"
+          type="text"
+        >
+          <i slot="prefix" class="el-input__icon iconfont icon-user"></i>
         </el-input>
-        <el-input :error='passwordError' :error-message='passwordErrorMsg' placeholder="请输入密码" v-model="password" type='password'>
+        <el-input
+          :error="passwordError"
+          :error-message="passwordErrorMsg"
+          placeholder="请输入密码"
+          v-model="password"
+          type="password"
+        >
           <i slot="prefix" class="el-input__icon el-icon-view"></i>
         </el-input>
       </div>
       <div class="footer">
-        <el-button type="primary" :loading="loading" @click.native="login">登录</el-button>
+        <el-button class="animated infinite fast jello" type="primary" :loading="loading" @click.native="login">登录</el-button>
       </div>
     </div>
   </div>
@@ -23,16 +35,15 @@
 
 <script lang='ts'>
 import Vue from 'vue';
-import { Component } from 'vue-property-decorator'
+import { Component } from 'vue-property-decorator';
 import { loginByUsername } from './service/index';
 import axios from 'axios';
 import fetch from '@/api/axios';
 const LoginService = {
   loginByUsername,
-}
+};
 @Component
 export default class Login extends Vue {
-
   // username data
   username: string = '';
   usernameError: boolean = false;
@@ -51,36 +62,31 @@ export default class Login extends Vue {
     this.validateUsername();
     this.validatePassword();
 
-    if(this.usernameError || this.passwordError) {
+    if (this.usernameError || this.passwordError) {
       this.loading = false;
       return;
     }
 
-    console.log(this.username, this.password);
-    // fetch.post('/v1/authorization', {
-    //   username: this.username,
-    //   password: this.password
-    // })
-    // .then(res => {
-    //   alert('success')
-    // })
-    // .catch(err => {
-    //   alert(err);
-    // })
-
-    LoginService.loginByUsername(this.username, this.password);
-    .then( (success: boolean) => {
-      
+    LoginService.loginByUsername(this.username, this.password)
+    .then(success => {
+      if (success) {
+        this.$router.push('/home');
+      }
     })
-   
+    .catch(err => {
+      this.handleLoginError(err);
+    })
+    .finally( () => {
+      this.loading = false;
+    })
   }
 
   handleLoginError(errMsg: string) {
-        this.usernameError = true;
-        this.passwordError = true;
-        this.usernameErrorMsg = errMsg;
-        this.passwordErrorMsg = '';
-    }
+    this.usernameError = true;
+    this.passwordError = true;
+    this.usernameErrorMsg = errMsg;
+    this.passwordErrorMsg = '';
+  }
   // 简单的校验用户名
   validateUsername() {
     if (this.username === '') {

@@ -4,10 +4,13 @@
 
 ## 移动端（）
 ```vue3.0+ts+vuex+scss+rem+登录拦截```
+```animate.css```
 
-
-### 接口文档
+### 接口文档(需要内网)
 1. 登录页面
+```url: /v1/authorization```
+```method: post```
+```params: {username: string, password: string}```
 
 
 

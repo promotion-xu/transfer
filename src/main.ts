@@ -11,7 +11,12 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 import './lib/rem';
 
-import axios from '@/api/axios/index'; 
+// animate.css 
+import 'animate.css';
+// iconfont
+import './assets/font_1013157_prd0od18vv/iconfont.css';
+import './assets/font_1013157_prd0od18vv/iconfont.js'
+
 
 Vue.config.productionTip = false;
 
