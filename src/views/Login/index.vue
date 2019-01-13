@@ -72,32 +72,28 @@ export default class Login extends Vue {
   }
 
   login() {
-    console.log(this.$store);
-    // console.log(this.$store.state.count);
-    // this.$store.commit('increment');
-    // console.log(this.$store.state.count)
-    // this.loading = true;
+    this.loading = true;
 
-    // this.validateUsername();
-    // this.validatePassword();
+    this.validateUsername();
+    this.validatePassword();
 
-    // if (this.usernameError || this.passwordError) {
-    //   this.loading = false;
-    //   return;
-    // }
+    if (this.usernameError || this.passwordError) {
+      this.loading = false;
+      return;
+    }
 
-    // LoginService.loginByUsername(this.username, this.password)
-    // .then(success => {
-    //   if (success) {
-    //     this.$router.push('/home');
-    //   }
-    // })
-    // .catch(err => {
-    //   this.handleLoginError(err);
-    // })
-    // .finally( () => {
-    //   this.loading = false;
-    // })
+    LoginService.loginByUsername(this.username, this.password)
+    .then(success => {
+      if (success) {
+        this.$router.push('/home');
+      }
+    })
+    .catch(err => {
+      this.handleLoginError(err);
+    })
+    .finally( () => {
+      this.loading = false;
+    })
   }
 
   handleLoginError(errMsg: string) {
