@@ -21,6 +21,7 @@
           placeholder="请输入密码"
           v-model="password"
           type="password"
+          @keyup.enter.native="login()"
         >
           <i slot="prefix" class="el-input__icon el-icon-view"></i>
         </el-input>
@@ -37,7 +38,6 @@
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import { loginByUsername } from './service/index';
-import axios from 'axios';
 import fetch from '@/api/axios';
 const LoginService = {
   loginByUsername,
