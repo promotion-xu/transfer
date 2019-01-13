@@ -2,6 +2,7 @@ import axios from 'axios';
 import Cache from '@/utils/cache';
 import { Loading, Message, MessageBox } from 'element-ui';
 axios.defaults.timeout = 5000;
+axios.defaults.withCredentials = true;
 axios.defaults.baseURL = '/api';
 // http 拦截器
 let loadinginstance: any;

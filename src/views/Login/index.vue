@@ -6,10 +6,10 @@
 
     <div class="container">
       <div class="main">
-        <el-input :error='usernameError' :error-message='usernameErrorMsg' placeholder="请输入用户名" v-model="username">
+        <el-input :error='usernameError' :error-message='usernameErrorMsg' placeholder="请输入用户名" v-model="username" type='text'>
           <i slot="prefix" class="el-input__icon el-icon-menu"></i>
         </el-input>
-        <el-input :error='passwordError' :error-message='passwordErrorMsg' placeholder="请输入密码" v-model="password">
+        <el-input :error='passwordError' :error-message='passwordErrorMsg' placeholder="请输入密码" v-model="password" type='password'>
           <i slot="prefix" class="el-input__icon el-icon-view"></i>
         </el-input>
       </div>
@@ -24,7 +24,12 @@
 <script lang='ts'>
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator'
-
+import { loginByUsername } from './service/index';
+import axios from 'axios';
+import fetch from '@/api/axios';
+const LoginService = {
+  loginByUsername,
+}
 @Component
 export default class Login extends Vue {
 
@@ -52,8 +57,30 @@ export default class Login extends Vue {
     }
 
     console.log(this.username, this.password);
+    // fetch.post('/v1/authorization', {
+    //   username: this.username,
+    //   password: this.password
+    // })
+    // .then(res => {
+    //   alert('success')
+    // })
+    // .catch(err => {
+    //   alert(err);
+    // })
 
+    LoginService.loginByUsername(this.username, this.password);
+    .then( (success: boolean) => {
+      
+    })
+   
   }
+
+  handleLoginError(errMsg: string) {
+        this.usernameError = true;
+        this.passwordError = true;
+        this.usernameErrorMsg = errMsg;
+        this.passwordErrorMsg = '';
+    }
   // 简单的校验用户名
   validateUsername() {
     if (this.username === '') {
