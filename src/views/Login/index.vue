@@ -1,8 +1,8 @@
 <template>
   <div class="login">
     <div class="title">
-      <h5 class=" animated infinite flash delay-1s">Personal Web</h5>
-      <h4 class=" animated infinite flash delay-1s">{{count}}</h4>
+      <h5 class="animated infinite flash delay-1s">Personal Web</h5>
+      <h4 class="animated infinite flash delay-1s">{{count}}</h4>
     </div>
 
     <div class="container">

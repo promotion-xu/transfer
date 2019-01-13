@@ -1,4 +1,8 @@
 const path = require('path');
+const px2rem = require('postcss-px2rem');
+const postcss = px2rem({
+  remUnit: 100, // need as same as lib/rem.js's baseSize
+})
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
@@ -51,6 +55,15 @@ module.exports = {
       }
     ]
   },
+  css: {
+    loaderOptions: {
+      postcss: {
+        plugins: [
+          postcss
+        ]
+      }
+    }
+  }
 
 
 }
