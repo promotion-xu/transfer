@@ -13,6 +13,7 @@
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
     "element-ui": "^2.4.11",
+    "exif-js": "^2.3.0",
     "node-sass": "^4.11.0",
     "postcss-px2rem": "^0.3.0",
     "sass-loader": "^7.1.0",
