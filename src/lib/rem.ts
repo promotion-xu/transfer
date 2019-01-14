@@ -1,5 +1,5 @@
 
-const baseSize = 100;
+const baseSize = 100; // 750 100
 function fnResize() {
   var deviceWidth = document.documentElement.clientWidth || window.innerWidth
   if (deviceWidth >= 750) {
