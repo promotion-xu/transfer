@@ -2,7 +2,7 @@
   <div class="login">
     <div class="title">
       <h5 class="animated infinite flash delay-1s">Personal Web</h5>
-      <h4 class="animated infinite flash delay-1s">{{count}}</h4>
+      <h5 class="animated infinite flash delay-1s">{{count}}</h5>
     </div>
 
     <div class="container">
@@ -136,7 +136,7 @@ export default class Login extends Vue {
     width: 6rem;
     height: 4rem;
     border: 1px solid #000;
-    margin: 2rem auto;
+    margin: .1rem auto;
     padding: 0.1rem 0.2rem;
     background-color: #fff;
     border-radius: 10px;

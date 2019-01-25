@@ -49,7 +49,7 @@
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import Exif from 'exif-js';
-
+import axios from 'axios';
 @Component
 export default class Home extends Vue {
   activeIndex2: string | number = '2';
@@ -57,6 +57,13 @@ export default class Home extends Vue {
   headerImage: string = '';
   picValue: string = '';
   imgUrl: string = '';
+
+
+  created() {
+    
+  }
+
+
   upload(e) {
     let files = e.target.files || e.dataTransfer.files;
     if (!files.length) return;

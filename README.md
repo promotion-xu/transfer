@@ -2,7 +2,7 @@
 ## Tips
 1. 注意： 开发分支为远端的dev分支， 提交代码到远端dev分支即可。
 
-## 移动端（）
+## PC端（）
 ```vue3.0+ts+vuex+scss+rem+登录拦截```
 ```animate.css```
 
