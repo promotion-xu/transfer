@@ -31,20 +31,20 @@ const router = new Router({
   ],
 });
 
-router.beforeEach((to, from, next) => {
-  if(to.meta.requireAuth) { // 判断是否需要登录权限
-    if(Cache.getToken()) {
-      next();
-    } else {
-      next({
-        path: '/login',
-        name: 'login'
-      })
-    }
-  } else {
-    next();
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   if(to.meta.requireAuth) { // 判断是否需要登录权限
+//     if(Cache.getToken()) {
+//       next();
+//     } else {
+//       next({
+//         path: '/login',
+//         name: 'login'
+//       })
+//     }
+//   } else {
+//     next();
+//   }
+// })
 router.afterEach(route => {
   // iView.LoadingBar.finish();
 })

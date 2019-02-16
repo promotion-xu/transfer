@@ -62,3 +62,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 1. can't find module 'less'
   ```yarn add less@2.7.3 less-loader --save```
 2. 
+
+
+
+
+## TODOLIST
+1. 解耦request api
+2. 
