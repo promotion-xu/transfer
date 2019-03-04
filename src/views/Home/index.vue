@@ -33,13 +33,6 @@ export default class Home extends Vue {
 
 <style lang="scss">
 .home {
-  &__nav {
-  }
-
-  &__container {
-    .home__label {
-      margin-top: 20px;
-    }
-  }
+  
 }
 </style>

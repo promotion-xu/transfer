@@ -127,8 +127,7 @@ export default class Login extends Vue {
 .login {
   width: 100%;
   height: 100%;
-  background: url('../../assets/background.png') no-repeat center;
-  overflow: hidden;
+
   .title {
     text-align: center;
   }
