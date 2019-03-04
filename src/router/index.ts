@@ -45,9 +45,9 @@ const router = new Router({
 //     next();
 //   }
 // })
-// router.afterEach(route => {
-//   // iView.LoadingBar.finish();
-// })
+router.afterEach(route => {
+  // iView.LoadingBar.finish();
+})
 
 
 export default router;
