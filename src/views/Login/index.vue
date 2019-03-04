@@ -28,7 +28,12 @@
         </el-input>
       </div>
       <div class="footer">
-        <el-button class="animated infinite fast jello" type="primary" :loading="loading" @click.native="login">登录</el-button>
+        <el-button
+          class="animated infinite fast jello"
+          type="primary"
+          :loading="loading"
+          @click.native="login"
+        >登录</el-button>
       </div>
     </div>
   </div>
@@ -46,14 +51,9 @@ const LoginService = {
   loginByUsername,
 };
 @Component({
-  computed: {
-  },
-  methods: {
-
-  },
-  watch: {
-
-  }
+  computed: {},
+  methods: {},
+  watch: {},
 })
 export default class Login extends Vue {
   // username data
@@ -83,17 +83,17 @@ export default class Login extends Vue {
     }
 
     LoginService.loginByUsername(this.username, this.password)
-    .then(success => {
-      if (success) {
-        this.$router.push('/home');
-      }
-    })
-    .catch(err => {
-      this.handleLoginError(err);
-    })
-    .finally( () => {
-      this.loading = false;
-    })
+      .then(success => {
+        if (success) {
+          this.$router.push('/home');
+        }
+      })
+      .catch(err => {
+        this.handleLoginError(err);
+      })
+      .finally(() => {
+        this.loading = false;
+      });
   }
 
   handleLoginError(errMsg: string) {
@@ -128,6 +128,8 @@ export default class Login extends Vue {
   width: 100%;
   height: 100%;
   background: url('../../assets/background.png') no-repeat center;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
   overflow: hidden;
   .title {
     text-align: center;
@@ -136,7 +138,7 @@ export default class Login extends Vue {
     width: 6rem;
     height: 4rem;
     border: 1px solid #000;
-    margin: .1rem auto;
+    margin: 0.1rem auto;
     padding: 0.1rem 0.2rem;
     background-color: #fff;
     border-radius: 10px;

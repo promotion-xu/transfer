@@ -1,29 +1,36 @@
 import Cache from '@/utils/cache';
 import fetch from '@/apiService/axios';
+const bcrypt = require('bcryptjs');
 /**
  * @param username
  * @param password
  */
 
 export const loginByUsername = (username: string, password: string) => {
+  const cost = 12;
   const p = new Promise((resolve, reject) => {
-    fetch.post('/v1/login', {
-      username,
-      password,
-    })
-      .then(res => {
-        if (res.data && res.data.token) {
-          const token = res.data.token;
-          Cache.setToken(token);
-          Cache.sessionSet('user', {
-            username,
+    bcrypt.genSalt(cost, (err: Error, salt: string) => {
+      bcrypt.hash(password, salt, (err2: Error, hash: string) => {
+        fetch.post('/v1/login', {
+          username,
+          password: hash,
+        })
+          .then(res => {
+            if (res.data && res.data.token) {
+              const token = res.data.token;
+              Cache.setToken(token);
+              Cache.sessionSet('user', {
+                username,
+              })
+              resolve(true);
+            }
           })
-          resolve(true);
-        }
+          .catch(err => {
+            reject(err);
+          })
       })
-      .catch(err => {
-        reject(err);
-      })
+    })
+
   })
   return p;
 }
