@@ -8,7 +8,7 @@
       <!-- 主体部分 -->
       <div v-else class="components-main clearfix">
         <div class="components-sidebar fl">
-          <sideBar></sideBar>
+          <Sidebar></Sidebar>
         </div>
         <div class="components-content fl">
           <router-view/>
@@ -22,16 +22,15 @@
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import config from '../config.js';
-import sideBar from '@/components/sideBar.vue';
+import Sidebar from '@/components/sideBar.vue';
 @Component({
   components: {
-    sideBar,
+    Sidebar,
   },
 })
 export default class App extends Vue {
   config = config;
   created() {
-    console.log('config', config);
   }
 }
 </script>
@@ -40,18 +39,25 @@ export default class App extends Vue {
 #app {
   width: 100%;
   height: 100%;
-  background: url('./assets/background.png') no-repeat center;
+  
   overflow: hidden;
   .components {
     width: 100%;
     height: 100%;
-  
+    .app-one {
+      width: 100%;
+      height: 100%;
+    }
+    &-main {
+      height: 100%;
+    }
     &-sidebar {
       width: 2.4rem;
       height: 100%;
     }
     &-content {
       padding-left: 2.4rem;
+      height: 100%;
     }
   }
 }
