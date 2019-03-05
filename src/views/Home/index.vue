@@ -5,7 +5,6 @@
     </div>
 
     <div class="home__container">
-      home主页...............
     </div>
 
     <div class="home__footer"></div>
