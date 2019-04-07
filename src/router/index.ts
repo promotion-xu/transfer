@@ -23,10 +23,17 @@ const router = new Router({
     {
       path: '/home',
       name: 'home',
+      title: 'home',
       meta: {
         requireAuth: true
       },
       component: () => import('@/views/Home/index.vue'),
+    },
+    {
+      path: '/charts',
+      name: 'charts',
+      title: 'charts',
+      component: () => import('@/views/Charts/index.vue'),
     }
   ],
 });
@@ -45,7 +52,7 @@ const router = new Router({
 //     next();
 //   }
 // })
-router.afterEach(route => {
+router.afterEach((route: any) => {
   // iView.LoadingBar.finish();
 })
 

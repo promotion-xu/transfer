@@ -44,7 +44,7 @@
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import { loginByUsername } from './service/index';
-import fetch from '@/api/axios';
+import fetch from '@/apiService/axios';
 import mapState from 'vuex';
 import loginStore from '@/store/modules/login';
 const LoginService = {
@@ -81,7 +81,7 @@ export default class Login extends Vue {
       this.loading = false;
       return;
     }
-
+    this.$router.push('/home');
     LoginService.loginByUsername(this.username, this.password)
       .then(success => {
         if (success) {

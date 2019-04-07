@@ -12,6 +12,7 @@
     "animate.css": "^3.7.0",
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
+    "echarts": "^4.2.1",
     "element-ui": "^2.4.11",
     "exif-js": "^2.3.0",
     "node-sass": "^4.11.0",
@@ -25,7 +26,7 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-typescript": "^3.2.0",
-    "@vue/cli-service": "^3.2.0",
+    "@vue/cli-service": "^3.5.3",
     "postcss-pxtorem": "^4.0.1",
     "typescript": "^3.0.0",
     "vue-template-compiler": "^2.5.21"

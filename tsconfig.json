@@ -6,15 +6,15 @@
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
+    "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true, // 移除警告
-    "allowJs": true,
     "sourceMap": true,
     "baseUrl": ".",
-    
     "types": [
-      "webpack-env"
+      "webpack-env",
+      "mocha",
+      "chai"
     ],
     "paths": {
       "@/*": [
@@ -25,10 +25,7 @@
       "esnext",
       "dom",
       "dom.iterable",
-      "scripthost",
-      "es5",
-      "es2015.promise",
-      "es2015.core",
+      "scripthost"
     ]
   },
   "include": [
@@ -36,7 +33,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx", "src/utils/base64.ts"
   ],
   "exclude": [
     "node_modules"

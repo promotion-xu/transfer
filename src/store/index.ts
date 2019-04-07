@@ -4,8 +4,10 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 import Login from './modules/login';
+import Echarts from './modules/echarts';
 const modules = {
   Login,
+  Echarts,
 };
 
 

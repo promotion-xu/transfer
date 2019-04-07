@@ -11,7 +11,10 @@
           <Sidebar></Sidebar>
         </div>
         <div class="components-content fl">
-          <router-view/>
+          <Header/>
+          <div class="show">
+            <router-view/>
+          </div>
         </div>
       </div>
     </div>
@@ -23,15 +26,16 @@ import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import config from '../config.js';
 import Sidebar from '@/components/sideBar.vue';
+import Header from '@/components/Header.vue';
 @Component({
   components: {
     Sidebar,
+    Header,
   },
 })
 export default class App extends Vue {
   config = config;
-  created() {
-  }
+  created() {}
 }
 </script>
 
@@ -39,7 +43,7 @@ export default class App extends Vue {
 #app {
   width: 100%;
   height: 100%;
-  
+
   overflow: hidden;
   .components {
     width: 100%;
@@ -56,8 +60,17 @@ export default class App extends Vue {
       height: 100%;
     }
     &-content {
-      padding-left: 2.4rem;
+      padding-top: .2rem;
+      padding-left: .2rem;
+      padding-right: .2rem;
+      // width: 80%;
+      width: calc(100vw - 240px);
       height: 100%;
+      .show {
+        padding-top: 1rem;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }
