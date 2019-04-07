@@ -1,7 +1,6 @@
 const echarts = {
   state: {
-    chartsTheme: '',
-    name: 'xuzhen',
+    chartsTheme: 'halloween',
   },
   getters: {
 
