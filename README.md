@@ -72,7 +72,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 
-### 解决ui框架支配问题
+### 解决ui框架适配问题
 
 
 ### docker前端自动化部署
