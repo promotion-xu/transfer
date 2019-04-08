@@ -5,6 +5,7 @@
       <h5 class="animated infinite flash delay-1s">{{count}}</h5>
     </div>
 
+    <waves />
     <div class="container">
       <div class="main">
         <el-input
@@ -45,12 +46,16 @@ import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import { loginByUsername } from './service/index';
 import fetch from '@/apiService/axios';
+import waves from '@/components/Waves/index.vue';
 import mapState from 'vuex';
 import loginStore from '@/store/modules/login';
 const LoginService = {
   loginByUsername,
 };
 @Component({
+  components: {
+    waves,
+  },
   computed: {},
   methods: {},
   watch: {},

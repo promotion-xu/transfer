@@ -29,7 +29,20 @@ html {
 *:focus {
   outline: none;
 }
+// 进度条样式
+::-webkit-scrollbar {
+  width: vm(5);
+  height: vm(5);
+}
 
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  width: vm(5);
+  background-color: #a1a7aa;
+}
 p,
 h1,
 h2,

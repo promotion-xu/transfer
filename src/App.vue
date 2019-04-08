@@ -15,6 +15,7 @@
           <div class="show">
             <router-view/>
           </div>
+          <app-progress/>
         </div>
       </div>
     </div>
@@ -23,23 +24,50 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { mapState, mapMutations } from 'vuex';
 import { Component } from 'vue-property-decorator';
 import config from '../config.js';
 import Sidebar from '@/components/sideBar.vue';
 import Header from '@/components/Header.vue';
+import AppProgress from '@/components/ProgressBar/index.vue';
 @Component({
   components: {
+    AppProgress,
     Sidebar,
     Header,
   },
+  computed: {
+    ...mapState({
+
+    }),
+    ...mapMutations(['SET_PROGRESS_STATUS'])
+  }
 })
 export default class App extends Vue {
   config = config;
-  created() {}
+  created() {
+    // 跳转前显示进度条
+    this.$router.beforeEach((to, from, next) => {
+        console.log('app', this.$store);
+        this.$store.commit('SET_PROGRESS_STATUS', 'start');
+        // 需要给一点延时，不然跳转太快进度条出不来
+        setTimeout(() => {
+            next();
+        }, 20);
+    });
+    // 跳转结束后隐藏
+    this.$router.afterEach((to, from) => {
+        this.$store.commit('SET_PROGRESS_STATUS', 'finish');
+    });
+  }
+  mounted() {
+    this.$store.commit('SET_PROGRESS_STATUS', 'finish')
+  }
 }
 </script>
 
 <style lang='scss'>
+@import '@/style/index.scss';
 #app {
   width: 100%;
   height: 100%;
@@ -60,9 +88,9 @@ export default class App extends Vue {
       height: 100%;
     }
     &-content {
-      padding-top: .2rem;
-      padding-left: .2rem;
-      padding-right: .2rem;
+      padding-top: 0.2rem;
+      padding-left: 0.2rem;
+      padding-right: 0.2rem;
       // width: 80%;
       width: calc(100vw - 240px);
       height: 100%;
