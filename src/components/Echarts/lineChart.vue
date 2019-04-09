@@ -37,13 +37,13 @@ export default class Linechart extends Vue {
     });
   }
 
-  @Watch('chartsTheme')
+  @Watch('chartsTheme', { immediate: true })
   handleChangeTheme(val: string) {
     console.log('val', val);
-    this.chartsTheme = val;
+    // this.chartsTheme = val;
+    console.log('nextTick', this.chartsTheme);
+    this.chart = echarts.init(this.$refs.chart as any, val);
     this.$nextTick(() => {
-      console.log('nextTick', this.chartsTheme);
-      this.chart = echarts.init(this.$refs.chart as any, this.chartsTheme);
       this.chart.setOption(this.options);
     });
   }
@@ -86,7 +86,7 @@ export default class Linechart extends Vue {
     },
     series: this.seriesData,
   };
-  chartsTheme: string;
+  // chartsTheme:string = '';
   chart: any = null;
 
   mounted() {
@@ -95,7 +95,6 @@ export default class Linechart extends Vue {
       this.chart.setOption(this.options);
     });
   }
-
 
   drawLine() {
     this.chart = echarts.init(this.$refs.chart as any, this.chartsTheme);

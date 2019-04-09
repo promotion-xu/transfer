@@ -36,19 +36,12 @@ import AppProgress from '@/components/ProgressBar/index.vue';
     Sidebar,
     Header,
   },
-  computed: {
-    ...mapState({
-
-    }),
-    ...mapMutations(['SET_PROGRESS_STATUS'])
-  }
 })
 export default class App extends Vue {
   config = config;
   created() {
     // 跳转前显示进度条
     this.$router.beforeEach((to, from, next) => {
-        console.log('app', this.$store);
         this.$store.commit('SET_PROGRESS_STATUS', 'start');
         // 需要给一点延时，不然跳转太快进度条出不来
         setTimeout(() => {
