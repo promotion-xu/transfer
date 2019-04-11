@@ -39,11 +39,11 @@ export default class Linechart extends Vue {
 
   @Watch('chartsTheme', { immediate: true })
   handleChangeTheme(val: string) {
-    console.log('val', val);
-    // this.chartsTheme = val;
-    console.log('nextTick', this.chartsTheme);
-    this.chart = echarts.init(this.$refs.chart as any, val);
+    this.chartsTheme = val;
     this.$nextTick(() => {
+      this.chart.clear();
+      this.chart.dispose();
+      this.chart = echarts.init(this.$refs.chart as any, this.chartsTheme);
       this.chart.setOption(this.options);
     });
   }
@@ -96,6 +96,10 @@ export default class Linechart extends Vue {
     });
   }
 
+  beforeDestroy() {
+    this.chart.clear();
+    this.chart.dispose();
+  }
   drawLine() {
     this.chart = echarts.init(this.$refs.chart as any, this.chartsTheme);
     const options: any = {
