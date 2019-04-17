@@ -1,13 +1,10 @@
 <template>
   <div class="home">
-    <div class="home__nav">
-    
+    <div class="images">
+      <img src="@/assets/avatar.jpeg" />
+      <img src="@/assets/avatar.jpeg" />
     </div>
-
-    <div class="home__container">
-    </div>
-
-    <div class="home__footer"></div>
+    <el-button type="primary" class="btn">神奇特效</el-button>
   </div>
 </template>
 
@@ -32,6 +29,9 @@ export default class Home extends Vue {
 
 <style lang="scss">
 .home {
-  
+  img{
+    width: 200px;
+    height: 200px;
+  }
 }
 </style>
