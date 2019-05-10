@@ -14,7 +14,6 @@ import axios from 'axios';
 export default class Home extends Vue {
   created() {}
   mounted() {
-
   }
   btnClick() {}
 }

@@ -57,20 +57,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 1. yarn config get registry
 2. yarn config set registry  http://registry.npm.taobao.org/
 ```
-
-### questions
-1. can't find module 'less'
-  ```yarn add less@2.7.3 less-loader --save```
-2. 
-
-
-
-
-## TODOLIST
-1. 解耦request api
-2. 
-
-
+### git hooks ---  https://juejin.im/post/5cd5227cf265da03761ea69d
 
 ### 解决ui框架适配问题
 
