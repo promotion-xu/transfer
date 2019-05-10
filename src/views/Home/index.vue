@@ -15,6 +15,7 @@ export default class Home extends Vue {
   created() {}
   mounted() {
     console.log(this);
+    console.log('check-keyword');
   }
   btnClick() {}
 }
