@@ -83,6 +83,11 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 4. 隔离应用,使应用松耦合 
 5. 快速部署 
 
-
-### echarts 界面化选定主题
-
+### 1. docker for windows安装
+### 2. docker version
+### 3. docker search nginx
+### 4. docker pull nginx  /  docker pull nginx:版本号
+### 5. 查看下载好的Image: docker images
+### 6. docker run -d -p 80:80 --name nginx -v /usr/share/nginx/html nginx
+### 7. 查看容器启动列表: docker ps
+### 8.  

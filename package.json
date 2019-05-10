@@ -6,7 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "prebuild": "rebuild-node-sass"
+    "prebuild": "rebuild-node-sass",
+    "check-keyword": "bash ./hooks/check-keyword.sh",
+    "precommit": "npm run check-keyword"
   },
   "dependencies": {
     "animate.css": "^3.7.0",
@@ -29,6 +31,7 @@
     "@vue/cli-plugin-typescript": "^3.2.0",
     "@vue/cli-service": "^3.5.3",
     "postcss-pxtorem": "^4.0.1",
+    "pre-commit": "^1.2.2",
     "typescript": "^3.0.0",
     "vue-template-compiler": "^2.5.21"
   },
