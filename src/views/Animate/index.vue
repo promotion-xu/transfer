@@ -30,7 +30,6 @@ export default {
   },
   methods: {
     handleAnimate() {
-      // console.log('聚合')
       let ul = this.$refs.ulEle;
       this.lists.forEach((item, i) => {
         let curRow, curColumn, curX, curY;
@@ -38,7 +37,6 @@ export default {
         curRow = Math.ceil((i + 1) / this.columns);  // 2/5 ---- 1
         curColumn = i % this.columns + 1; // 1 % 5 + 1 = 2
 
-        console.log(curRow, curColumn, '**************')
 
         curX = (curColumn - 1 / 2) * this.liW;
         curY = (curRow - 1 / 2) * this.liH;
@@ -46,6 +44,7 @@ export default {
         item.translateY = this.centerPointer.y - curY;
         let liArr = ul.getElementsByTagName('li');
         this.$refs.liEle[i].style.transform = `translate(${item.translateX}px,${item.translateY}px)`;
+        this.$refs.liEle[i].style.transition = `all .5s linear`;
         this.$refs.liEle[i].style.borderRadius = '50%';
       })
     }
@@ -58,7 +57,6 @@ export default {
     this.ulH = this.liH * this.rows;
     this.centerPointer.x = this.ulW / 2;
     this.centerPointer.y = this.ulH / 2;
-    console.log('lists', this.lists);
   }
 }
 </script>
