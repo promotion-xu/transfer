@@ -13,8 +13,7 @@ import axios from 'axios';
 @Component
 export default class Home extends Vue {
   created() {}
-  mounted() {
-  }
+  mounted() {}
   btnClick() {}
 }
 </script>
@@ -35,7 +34,7 @@ export default class Home extends Vue {
     transform-style: preserve-3d;
     perspective: 500px;
   }
-  .item{
+  .item {
     position: absolute;
   }
 }

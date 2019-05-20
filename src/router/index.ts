@@ -34,6 +34,11 @@ const router = new Router({
       name: 'charts',
       title: 'charts',
       component: () => import('@/views/Charts/index.vue'),
+    },
+    {
+      path: '/animate',
+      name: 'animate',
+      component: () => import('@/views/Animate/index.vue'),
     }
   ],
 });
