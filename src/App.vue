@@ -27,8 +27,8 @@ import Vue from 'vue';
 import { mapState, mapMutations } from 'vuex';
 import { Component } from 'vue-property-decorator';
 import config from '../config.js';
-import Sidebar from '@/components/sideBar.vue';
-import Header from '@/components/Header.vue';
+import Sidebar from '@/components/SideBar/sideBar.vue';
+import Header from '@/components/Header/Header.vue';
 import AppProgress from '@/components/ProgressBar/index.vue';
 @Component({
   components: {

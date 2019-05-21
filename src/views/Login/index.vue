@@ -86,11 +86,11 @@ export default class Login extends Vue {
       this.loading = false;
       return;
     }
-    this.$router.push('/home');
+    this.$router.push('/animate');
     LoginService.loginByUsername(this.username, this.password)
       .then(success => {
         if (success) {
-          this.$router.push('/home');
+          this.$router.push('/animate');
         }
       })
       .catch(err => {

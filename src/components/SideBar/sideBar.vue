@@ -15,6 +15,7 @@
           background-color="#545c64"
           text-color="#fff"
           active-text-color="#ffd04b"
+          :router='true'
         >
           <el-submenu index="1">
             <template slot="title">
@@ -23,7 +24,7 @@
             </template>
             <el-menu-item-group>
               <template slot="title">charts</template>
-              <el-menu-item index="1-1" @click="charts">linecharts</el-menu-item>
+              <el-menu-item index="/charts" >linecharts</el-menu-item>
               <el-menu-item index="1-2">选项2</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="分组2">
@@ -35,13 +36,13 @@
             </el-submenu>
           </el-submenu>
 
-          <el-menu-item index="2" @click='clickPhoto'>
+          <el-menu-item index="/photo">
             <i class="el-icon-menu"></i>
             <span slot="title">图片压缩</span>
           </el-menu-item>
-          <el-menu-item index="3">
+          <el-menu-item index="/animate">
             <i class="el-icon-document"></i>
-            <span slot="title">导航三</span>
+            <span slot="title">聚合动画</span>
           </el-menu-item>
           <el-menu-item index="4">
             <i class="el-icon-setting"></i>
@@ -61,12 +62,6 @@ export default class Sidebar extends Vue {
   handleOpen(key: any, keyPath: any) {}
   handleClose(key: any, keyPath: any) {}
   created() {
-  }
-  charts() {
-    this.$router.push('/charts');
-  }
-  clickPhoto() {
-    this.$router.push('/photo')
   }
 }
 </script>
