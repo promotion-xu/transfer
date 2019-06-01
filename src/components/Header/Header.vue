@@ -43,6 +43,9 @@ export default class Header extends Vue {
 <style lang="scss" scoped>
 @import '@/style/index.scss';
 .header {
+  background-color: #ccc;
+  height: 1rem;
+  line-height: 1rem;
   font-size: 20px;
 }
 </style>

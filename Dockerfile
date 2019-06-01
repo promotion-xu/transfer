@@ -1,9 +1,7 @@
-FROM node:10.15.0
-
-WORKDIR /home/Service
-# Bundle app source
+FROM node:latest
+RUN mkdir -p /home/Service
 COPY . /home/Service
-# RUN yarn install
-# ssss
-EXPOSE 8989 
-CMD [ "npm", "run", "serve" ]
+WORKDIR /home/Service
+EXPOSE 8000
+RUN npm install
+CMD ["npm", "run", "serve"]

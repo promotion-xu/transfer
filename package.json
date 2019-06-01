@@ -6,8 +6,13 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "prebuild": "rebuild-node-sass"
+    "prebuild": "rebuild-node-sass",
+    "check-keyword": "bash ./hooks/check-keyword.sh",
+    "precommit": "npm run check-keyword"
   },
+  "pre-commit": [
+    "precommit"
+  ],
   "dependencies": {
     "animate.css": "^3.7.0",
     "axios": "^0.18.0",
@@ -15,6 +20,8 @@
     "echarts": "^4.2.1",
     "element-ui": "^2.4.11",
     "exif-js": "^2.3.0",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
     "lodash": "^4.17.11",
     "node-sass": "^4.11.0",
     "postcss-px2rem": "^0.3.0",
@@ -28,7 +35,9 @@
   "devDependencies": {
     "@vue/cli-plugin-typescript": "^3.2.0",
     "@vue/cli-service": "^3.5.3",
+    "husky": "^2.2.0",
     "postcss-pxtorem": "^4.0.1",
+    "pre-commit": "^1.2.2",
     "typescript": "^3.0.0",
     "vue-template-compiler": "^2.5.21"
   },

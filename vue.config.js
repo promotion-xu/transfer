@@ -10,6 +10,7 @@ function resolve(dir) {
 module.exports = {
   lintOnSave: false,
   devServer: {
+    disableHostCheck: true,
     proxy: {
       '/api': {
         target: 'http://10.0.5.234:30080/engine/gateway-service',

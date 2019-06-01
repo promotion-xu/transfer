@@ -37,7 +37,7 @@ export default class Linechart extends Vue {
     });
   }
 
-  @Watch('chartsTheme')
+  @Watch('chartsTheme', { immediate: true })
   handleChangeTheme(val: string) {
     this.chartsTheme = val;
     this.$nextTick(() => {
@@ -86,7 +86,7 @@ export default class Linechart extends Vue {
     },
     series: this.seriesData,
   };
-  chartsTheme: string;
+  // chartsTheme:string = '';
   chart: any = null;
 
   mounted() {
