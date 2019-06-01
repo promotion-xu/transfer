@@ -47,7 +47,7 @@ export default class Linechart extends Vue {
       this.chart.setOption(this.options);
     });
   }
-
+  refs: any;
   options: any = {
     title: {
       // text: '折线图堆叠',
@@ -93,6 +93,9 @@ export default class Linechart extends Vue {
     this.$nextTick(() => {
       this.chart = echarts.init(this.$refs.chart as any, this.chartsTheme);
       this.chart.setOption(this.options);
+      window.onresize =  () => {
+        this.chart.resize();
+      }
     });
   }
 
