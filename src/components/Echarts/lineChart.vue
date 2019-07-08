@@ -47,6 +47,7 @@ export default class Linechart extends Vue {
       this.chart.setOption(this.options);
     });
   }
+  chartsTheme: any;
   refs: any;
   options: any = {
     title: {
@@ -93,9 +94,12 @@ export default class Linechart extends Vue {
     this.$nextTick(() => {
       this.chart = echarts.init(this.$refs.chart as any, this.chartsTheme);
       this.chart.setOption(this.options);
-      window.onresize =  () => {
+      // window.addEventListener =  ('resize',) => {
+      //   this.chart.resize();
+      // }
+      window.addEventListener('resize', () => {
         this.chart.resize();
-      }
+      })
     });
   }
 
