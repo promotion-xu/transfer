@@ -34,7 +34,9 @@
         <img src="./assets/right.svg" alt />
       </div>
       <div class="style fl right">
-        <img :src="imageUrl" alt />
+        <div>
+          <img :src="imageUrl" alt />
+        </div>
       </div>
     </div>
   </div>
@@ -71,7 +73,29 @@ export default {
       const {coords, lines} = documents;
       var imageWidth = coords[2]; // 图片宽
       var imageHeight = coords[5]; // 图片高
-      console.log('document', documents);
+      // 每一行的位置
+      var linesOne = lines[0];
+      var leftTopPosition = {
+        x: linesOne.coords[0],
+        y: linesOne.coords[1]
+      }
+      var rightTopPosition = {
+        x: linesOne.coords[2],
+        y: linesOne.coords[3]
+      }
+      var rightBottomPosition = {
+        x: linesOne.coords[4],
+        y: linesOne.coords[5]
+      }
+      var leftBottomPosition = {
+        x: linesOne.coords[6],
+        y: linesOne.coords[7]
+      }
+      // 每一行的宽度
+      var linesOneWidth = Number(linesOne.coords[2]) - Number(linesOne.coords[0]);
+      // 每一行的高度
+      var linesOneHeight = Number(linesOne.coords[5]) - Number(linesOne.coords[3]);
+      console.log(linesOneWidth, linesOneHeight)
 
     },
     handleAvatarSuccess(res, file) {
