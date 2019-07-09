@@ -48,12 +48,13 @@ export default {
   },
   data() {
     return {
-      imageUrl: ''
+      imageUrl: '',
+      data: {}
     };
   },
 
   mounted() {
-    console.log('1', getJson());
+    this.data = getJson();
   },
   methods: {
     handMyPost() {
@@ -66,6 +67,12 @@ export default {
       let images = {};
       images.base64 = await this.getBase64(file.raw);
       this.imageUrl = images.base64;
+      const {documents} = this.data;
+      const {coords, lines} = documents;
+      var imageWidth = coords[2]; // 图片宽
+      var imageHeight = coords[5]; // 图片高
+      console.log('document', documents);
+
     },
     handleAvatarSuccess(res, file) {
       this.imageUrl = URL.createObjectURL(file.raw);
